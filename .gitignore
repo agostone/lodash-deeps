@@ -1,0 +1,8 @@
+# IDE related
+.idea
+
+# Node.js related
+node_modules
+
+# Package manager related
+yarn.lock

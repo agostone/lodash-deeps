@@ -1,0 +1,56 @@
+{
+  "name": "@agostone/lodash-deeps",
+  "version": "0.1.0",
+  "description": "Lodash deep mixin pairs for functions that had none.",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "tests"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-es6": "^1.10.3",
+    "eslint-config-loopback": "^10.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-jasmine": "^3.0.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~1.0.1",
+    "gulp-webpack": "^1.5.0",
+    "jasmine": "^2.9.0",
+    "karma": "0.13.21",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-jasmine": "^1.1.1",
+    "karma-sauce-launcher": "0.3.1",
+    "uglifyjs-webpack-plugin": "^1.1.6"
+  },
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">=5.5"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agostone/lodash-deeps.git"
+  },
+  "keywords": [
+    "lodash",
+    "mixin",
+    "mixins",
+    "deep"
+  ],
+  "author": "Agoston Nagy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agostone/lodash-deeps/issues"
+  },
+  "homepage": "https://github.com/agostone/lodash-deep"
+}

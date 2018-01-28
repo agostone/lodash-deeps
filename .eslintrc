@@ -1,0 +1,20 @@
+{
+  "extends": ["loopback", "es6"],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "import/newline-after-import": "off",
+    "no-param-reassign": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ]
+  }
+}
