@@ -19,12 +19,12 @@ No bower package yet, but the npm package has a browser version in dist director
 
 ### Node.js
 1. `npm install lodash`
-2. `npm install lodash-deeps`
+2. `npm install @agostone/lodash-deeps`
 3. 
     ``` javascript
 
     const _ = require("lodash");
-    _.mixin(require("lodash-deeps"));
+    _.mixin(require("@agostone/lodash-deeps"));
     ```
 
 ## Docs
