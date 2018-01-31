@@ -3,7 +3,7 @@
 /**
  * This method is like _.join except that it recursively joins nested arrays too.
  *
- * @param {Array} array - The array to convert
+ * @param {Array} array - The array to convert.
  * @param {string} [separator=','] - The element separator.
  * @returns {string} Returns the joined string.
  */

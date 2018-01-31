@@ -3,7 +3,7 @@
 /**
  * This method is like _.filter except that it recursively filters nested collections too.
  *
- * @param {Array|Object} collection - The collection to filter
+ * @param {Array|Object} collection - The collection to filter.
  * @param {Function} [predicate=_.identity] - The function invoked per iteration.
  * @returns {Array} Returns a new filtered array.
  */

@@ -30,15 +30,17 @@ No bower package yet, but the npm package has a browser version in dist director
 ## Docs
 The following mixins are included in lodash-deeps:
 - [_.compactDeep](#_compactdeeparray)
-- [_.filterDeep](#_filterdeepcollection-predicate)
-- [_.joinDeep](#_joindeeparray-separator)
-- [_.mapKeysDeep](#_mapkeysdeepobject-iteratee)
-- [_.mapValuesDeep](#_mapvaluesdeepobject-iteratee)
+- [_.filterDeep](#_filterdeepcollection-predicate--_identity)
+- [_.findDeep](#_finddeepcollection-predicate--_identity-fromindex--0-returnroot--true)
+- [_.findIndexDeep](#_findindexdeeparray-predicate--_identity-fromindex--0)
+- [_.joinDeep](#_joindeeparray-separator--)
+- [_.mapKeysDeep](#_mapkeysdeepobject-iteratee--_identity)
+- [_.mapValuesDeep](#_mapvaluesdeepobject-iteratee--thisidentity)
 
 ### _.compactDeep(array)
 This method is like [_.compact](https://lodash.com/docs/#compact) except that it recursively compacts nested arrays too.
 
-### _.filterDeep(collection, predicate = this.identity)
+### _.filterDeep(collection, predicate = _.identity)
 This method is like [_.filter](https://lodash.com/docs/#filter) except that it recursively filters nested collections too.
 
 ```javascript
@@ -69,6 +71,58 @@ _.filterDeep(collection, value => value.color === 'red');
 }
 ```
 
+### _.findDeep(collection, predicate = _.identity, fromIndex = 0, returnRoot = true) {
+This method is like [_.find](https://lodash.com/docs/#find) except that it recursively executes predicate for nested collections.
+
+Only difference is, if returnRoot is false, it'll return the found element, if true, will return the nesting elements too, up to the root.
+
+```javascript
+const source = {
+    'one': 'one',
+    'two': 'two',
+    'three': {
+        'four': {
+            'five': 'five',
+            'six': 'six'
+        },
+        'seven': 'seven'
+    }
+};
+_.findDeep(source, value => value === 'five');
+/**
+* ->
+* {
+*     'four': {
+*         'five': 'five',
+*         'six': 'six'
+*     },
+*     'seven': 'seven'
+* }
+*/
+
+_.findDeep(source, value => value === 'five', 0, false);
+/**
+* ->
+* 'five'
+*/
+```
+
+### _.findIndexDeep(array, predicate = _.identity, fromIndex = 0) {
+This method is like [_.findIndex](https://lodash.com/docs/#findIndex) except that it recursively executes predicate for nested arrays.
+
+Only difference is, when predicate is truthy for an element in a deeper level, the result is an index array.
+
+```javascript
+const array = ['one', ['two', 'three'], 'four'];
+const index = _.findIndexDeep(array, value => value === 'two');
+_.get(array, index);
+/**
+* ->
+* index == [1, 0]
+* _.get == 'two'
+*/
+```
+
 ### _.joinDeep(array, separator = ',')
 This method is like [_.join](https://lodash.com/docs/#join) except that it recursively compacts nested arrays too.
 
@@ -81,10 +135,10 @@ _.joinDeep(array, '-');
 */
 ```
 
-### _.mapKeysDeep(object, iteratee = this.identity)
+### _.mapKeysDeep(object, iteratee = _.identity)
 This method is like [_.mapKeys](https://lodash.com/docs/#mapKeys) except that it recursively maps keys.
 
-### _.mapValuesDeep(object, iteratee = this.identity)
+### _.mapValuesDeep(object, iteratee = _.identity)
 This method is like [_.mapValues](https://lodash.com/docs/#mapValues) except that it recursively maps values.
 
 ## Requests

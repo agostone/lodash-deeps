@@ -3,7 +3,7 @@
 /**
  * This method is like _.compact except that it recursively compacts nested arrays too.
  *
- * @param {Array} array - The array to compact
+ * @param {Array} array - The array to compact.
  * @returns {Array} Returns a new compacted array.
  */
 function compactDeep(array) {
