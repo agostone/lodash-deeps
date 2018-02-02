@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+
 'use strict';
 
 /**
@@ -8,16 +10,20 @@
  * @returns {Array} Returns a new filtered array.
  */
 function filterDeep(collection, predicate = this.identity) {
-    let result = this.filter(collection, predicate);
+    const filter = this.filter;
+    const isObject = this.isObject;
 
-    // @todo: Fix, not performance friendly.
-    this.forEach(collection, (value) => {
-        if (this.isObject(value)) {
-            result = [...result, ...this.filterDeep(value, predicate)];
+    predicate = this.iteratee(predicate, 3);
+
+    const subResults = [];
+    function iteratee(value, index, collection) {
+        if (isObject(value)) {
+            subResults.push(filter(value, iteratee));
         }
-    });
+        return predicate(value, index, collection);
+    }
 
-    return result;
+    return this.flatten(this.filter(collection, iteratee).concat(subResults));
 }
 
 module.exports = filterDeep;
