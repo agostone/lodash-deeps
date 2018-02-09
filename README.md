@@ -35,7 +35,8 @@ The following mixins are included in lodash-deeps:
 - [_.findIndexDeep](#_findindexdeeparray-predicate--_identity-fromindex--0)
 - [_.joinDeep](#_joindeeparray-separator--)
 - [_.mapKeysDeep](#_mapkeysdeepobject-iteratee--_identity)
-- [_.mapValuesDeep](#_mapvaluesdeepobject-iteratee--thisidentity)
+- [_.mapValuesDeep](#_mapvaluesdeepobject-iteratee--_identity)
+- [_.pickByDeep](#_pickbydeepobject-predicate--_identity)
 
 ### _.compactDeep(array)
 This method is like [_.compact](https://lodash.com/docs/#compact) except that it recursively compacts nested arrays too.
@@ -99,7 +100,6 @@ _.findDeep(source, value => value === 'five');
 *     'seven': 'seven'
 * }
 */
-
 _.findDeep(source, value => value === 'five', 0, false);
 /**
 * ->
@@ -140,6 +140,34 @@ This method is like [_.mapKeys](https://lodash.com/docs/#mapKeys) except that it
 
 ### _.mapValuesDeep(object, iteratee = _.identity)
 This method is like [_.mapValues](https://lodash.com/docs/#mapValues) except that it recursively maps values.
+
+### _.pickByDeep(object, predicate = _.identity)
+This method is like [_.pickBy](https://lodash.com/docs/#pickBy) except that it recursively checks in nested collections too.
+
+```javascript
+const source = {
+    'one': 'one',
+    'two': 'two',
+    'three': undefined,
+    'four': [
+        'two', NaN, 'three'
+    ],
+    'six': aFunction,
+    'seven': theClass,
+    'eight': {
+        'color': 'red'
+    }
+};
+_.pickByDeep(source, value => value === 'red');
+/**
+* ->
+* {
+*     'eight': {
+*         'color': 'red'
+*     }
+* } 
+*/
+```
 
 ## Requests
 I plan to add more deep functions when/if they are needed.

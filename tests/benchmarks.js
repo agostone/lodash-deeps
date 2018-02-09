@@ -100,6 +100,32 @@ suite
 
         _.mapValuesDeep(object, value => value.toUpperCase());
     })
+    .add('pickByDeep', () => {
+        const aFunction = function () {};
+        const AClass = class {
+            static get one() {
+                return 1;
+            }
+        };
+
+        const theClass = new AClass();
+
+        const source = {
+            'one': 'one',
+            'two': 'two',
+            'three': undefined,
+            'four': [
+                'two', NaN, 'three'
+            ],
+            'six': aFunction,
+            'seven': theClass,
+            'eight': {
+                'color': 'red'
+            }
+        };
+
+        _.pickByDeep(source, value => value === 'red');
+    })
     // add listeners
     .on('cycle', (event) => {
         console.log(String(event.target));

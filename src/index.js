@@ -5,15 +5,17 @@ const filterDeep = require('./filterDeep');
 const findDeep = require('./findDeep');
 const findIndexDeep = require('./findIndexDeep');
 const joinDeep = require('./joinDeep');
-const mapValuesDeep = require('./mapValuesDeep');
 const mapKeysDeep = require('./mapKeysDeep');
+const mapValuesDeep = require('./mapValuesDeep');
+const pickByDeep = require('./pickByDeep');
 
 module.exports = {
-    'compactDeep': compactDeep,
-    'filterDeep': filterDeep,
-    'findDeep': findDeep,
-    'findIndexDeep': findIndexDeep,
-    'joinDeep': joinDeep,
-    'mapValuesDeep': mapValuesDeep,
-    'mapKeysDeep': mapKeysDeep
+    compactDeep,
+    filterDeep,
+    findDeep,
+    findIndexDeep,
+    joinDeep,
+    mapKeysDeep,
+    mapValuesDeep,
+    pickByDeep
 };

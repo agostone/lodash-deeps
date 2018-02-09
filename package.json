@@ -1,6 +1,6 @@
 {
   "name": "@agostone/lodash-deeps",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Lodash deep mixin pairs for functions that has none.",
   "main": "src/index.js",
   "directories": {
